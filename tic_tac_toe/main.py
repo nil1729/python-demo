@@ -71,7 +71,7 @@ score = [0, 0]
 # Show Results
 def show_result():
     print('\n'*2)
-    print('\t' * 4 + 'Total Match', match)
+    print('\t' * 4 + 'Total Match:', match)
     print('\t' * 4 + 'Player 1 score:', score[0])
     print('\t' * 4 + 'Player 2 score:', score[1])
     print('\n' + '\t' * 4 + '-' * 7 + 'GAME___OVER' + '-' * 7 + '\n')
