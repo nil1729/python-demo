@@ -35,3 +35,9 @@
 3.  \*args and \*\*kargws
 4.  Lamda Expressions, Map, Filtering
 5.  Nested Statements and Scope discussions
+
+### Chapter 5
+
+1.  Modules Introduction
+2.  Built-in Modules, Standard Modules, Third Party Modules
+3.  How we can create a module and packages
