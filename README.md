@@ -48,3 +48,9 @@
 2.  Class Declarations and Methods
 3.  Inheritance and Special Methods (Magic/Dunder)
 4.  Property Decorators Getters, Setters and Deleters
+
+### Chapter 7
+
+1.  Errors and Exceptions in Python
+2.  try/except/finally
+3.  Using **pylint** and **unittest** library

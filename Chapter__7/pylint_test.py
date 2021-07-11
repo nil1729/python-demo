@@ -3,7 +3,7 @@ A Very Simple Python Script
 """
 
 
-def my_func():
+def func():
     """
     A simple function
     :return:
@@ -14,4 +14,4 @@ def my_func():
     print(second)
 
 
-my_func()
+func()
