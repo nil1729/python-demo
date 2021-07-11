@@ -41,3 +41,10 @@
 1.  Modules Introduction
 2.  Built-in Modules, Standard Modules, Third Party Modules
 3.  How we can create a module and packages
+
+### Chapter 6
+
+1.  OOPs in Python
+2.  Class Declarations and Methods
+3.  Inheritance and Special Methods (Magic/Dunder)
+4.  Property Decorators Getters, Setters and Deleters
