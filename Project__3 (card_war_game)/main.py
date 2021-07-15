@@ -6,7 +6,7 @@
     values - Dictionary of rank, value pairs
 """
 import random
-suits = ('hearts', 'spades', 'diamonds', 'Clubs')
+suits = ('hearts', 'spades', 'diamonds', 'clubs')
 ranks = (
     'two',
     'three',
