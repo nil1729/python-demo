@@ -7,7 +7,7 @@ def start_game():
     Main Game Logic and playing the game
     """
     # Print an opening statement
-    print("\nWelcome to BLACK JACK!\n")
+    print(f"\n {'*'*10} Welcome to BLACK JACK! {'*'*10}\n")
 
     # Create & shuffle the deck, deal two cards to each player
     deck = Deck()
@@ -40,36 +40,35 @@ def start_game():
             player_busts(player_hand, dealer_hand, player_chips)
             break
 
-        # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
-        if player_hand.value <= 21:
+    # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
+    if player_hand.value <= 21:
 
-            while dealer_hand.value < player_hand.value:
-                hit(deck, dealer_hand)
-        
-            # Show all cards
-            show_all(player_hand, dealer_hand)
-        
-            # Run different winning scenarios
-            if dealer_hand.value > 21:
-                dealer_busts(player_hand, dealer_hand, player_chips)
+        while dealer_hand.value < player_hand.value:
+            hit(deck, dealer_hand)
+    
+        # Show all cards
+        show_all(player_hand, dealer_hand)
+    
+        # Run different winning scenarios
+        if dealer_hand.value > 21:
+            dealer_busts(player_hand, dealer_hand, player_chips)
 
-            elif player_hand.value < dealer_hand.value:
-                dealer_wins(player_hand, dealer_hand, player_chips)
+        elif player_hand.value < dealer_hand.value:
+            dealer_wins(player_hand, dealer_hand, player_chips)
 
-            elif player_hand.value > dealer_hand.value:
-                player_wins(player_hand, dealer_hand, player_chips)
+        elif player_hand.value > dealer_hand.value:
+            player_wins(player_hand, dealer_hand, player_chips)
 
-            else:
-                push(player_hand, dealer_hand)
+        else:
+            push(player_hand, dealer_hand)
 
     # Inform Player of their chips total
-    print(f"\nPlayer's winnings stand at {player_chips.total}")
+    print(f"\nPlayer: {player_hand.name}'s winnings stand at {player_chips.total}")
     
     # Ask to play again
-    new_game = input("Would you like to play another hand? Enter 'y' or 'n' ")
+    new_game = input("\nWould you like to play another hand? Enter 'y' or 'n' ")
 
     if new_game[0].lower() == 'y':
-        playing = True
         start_game()
     else:
-        print("Thanks for playing!")
+        print(f"\n{'*'*10} Thanks for Playing! {'*'*10}\n")

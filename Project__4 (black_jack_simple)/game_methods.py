@@ -57,16 +57,19 @@ def take_bet(chips):
     """
     while True:
         try:
-            chips.bet = int(input('How many chips would you like to bet? '))
+            chosen_bet = int(input('How many chips would you like to bet? '))
 
         except ValueError:
             print('Sorry, a bet must be an integer! which don\'t exceeds your current total chips')
             continue
 
         else:
-            if chips.bet > chips.total:
+            if chosen_bet > chips.total:
                 print("Sorry, your bet can't exceed your chips total ", chips.total)
+            elif chosen_bet < 1:
+                print("Sorry, your bet must be greater than 0")
             else:
+                chips.bet = chosen_bet
                 break
 
 def hit(deck, hand):
@@ -99,11 +102,9 @@ def show_some(player, dealer):
     """
     Show the player's and dealer's cards
     """
-    print("\nDealer's Hand:")
-    print("First Card Hidden")
-    print(dealer.cards[1])
+    print(f"\nDealer: {dealer.name}'s Hand: ", "First Card Hidden", dealer.cards[1], sep='\n')
 
-    print("\nPlayer's Hand: ", *player.cards, sep='\n')
+    print(f"\nPlayer: {player.name}'s Hand: ", *player.cards, sep='\n')
     print(f"Value of Player's Hand: {player.value}")
 
 
@@ -111,10 +112,10 @@ def show_all(player, dealer):
     """
     Show the player's and dealer's cards
     """
-    print("\nDealer's Hand:", *dealer.cards, sep='\n')
+    print(f"\nDealer: {dealer.name}'s Hand: ", *dealer.cards, sep='\n')
     print(f"Value of Dealer's Hand: {dealer.value}")
 
-    print("\nPlayer's Hand:", *player.cards, sep='\n')
+    print(f"\nPlayer: {player.name}'s Hand: ", *player.cards, sep='\n')
     print(f"Value of Player's Hand: {player.value}")
 
 
@@ -122,32 +123,32 @@ def player_busts(player, dealer, chips):
     """
     Player busts
     """
-    print(f"Player {player.name} Busts! Dealer {dealer.name} Wins!")
+    print(f"\nPlayer: {player.name} Busts! Dealer: {dealer.name} Wins!")
     chips.lose_bet()
 
 def player_wins(player, dealer, chips):
     """
     Player wins
     """
-    print(f"Player {player.name} Wins! Dealer {dealer.name} Lost the game!")
+    print(f"\nPlayer: {player.name} Wins! Dealer: {dealer.name} Lost the game!")
     chips.win_bet()
 
 def dealer_busts(player, dealer, chips):
     """
     Dealer busts
     """
-    print(f"Dealer {dealer.name} Busts! Player {player.name} Wins!")
+    print(f"\nDealer: {dealer.name} Busts! Player: {player.name} Wins!")
     chips.win_bet()
 
 def dealer_wins(player, dealer, chips):
     """
     Player looses
     """
-    print(f"Dealer {dealer.name} Wins! Player {player.name} Lost the game!")
+    print(f"\nDealer: {dealer.name} Wins! Player: {player.name} Lost the game!")
     chips.lose_bet()
 
 def push(player, dealer):
     """
     Push
     """
-    print(f"Dealer {dealer.name} and Player {player.name} tie! It's a push.")
+    print(f"\nDealer: {dealer.name} and Player: {player.name} tie! It's a push.")
