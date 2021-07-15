@@ -1,13 +1,34 @@
+"""
+Main Game Logic and playing the game
+"""
 from game_objects import Deck
-from game_methods import setup_players, choose_chips, take_bet, hit, hit_or_stand, show_some, show_all, player_busts, player_wins, dealer_busts, dealer_wins, push
+from game_methods import (
+    setup_players,
+    choose_chips,
+    take_bet,
+    hit,
+    hit_or_stand,
+    show_some,
+    show_all,
+    player_busts,
+    player_wins,
+    dealer_busts,
+    dealer_wins,
+    push
+)
 
 
 def start_game():
     """
-    Main Game Logic and playing the game
+    Start the Main Game
     """
     # Print an opening statement
-    print(f"\n {'*'*10} Welcome to BLACK JACK! {'*'*10}\n")
+    print(f"\n {'*'*10} Welcome to BLACK JACK! {'*'*10}")
+    print("""
+    Instructions:
+        Get as close to 21 as you can without going over!
+        Dealer (Computer) hits until it reaches 17. Aces count as 1 or 11.
+    """)
 
     # Create & shuffle the deck, deal two cards to each player
     deck = Deck()
@@ -34,7 +55,7 @@ def start_game():
 
         # Show cards (but keep one dealer card hidden)
         show_some(player_hand, dealer_hand)
-        
+
         # If player's hand exceeds 21, run player_busts() and break out of loop
         if player_hand.value > 21:
             player_busts(player_hand, dealer_hand, player_chips)
@@ -43,12 +64,12 @@ def start_game():
     # If Player hasn't busted, play Dealer's hand until Dealer reaches 17
     if player_hand.value <= 21:
 
-        while dealer_hand.value < player_hand.value:
+        while dealer_hand.value < 17:
             hit(deck, dealer_hand)
-    
+
         # Show all cards
         show_all(player_hand, dealer_hand)
-    
+
         # Run different winning scenarios
         if dealer_hand.value > 21:
             dealer_busts(player_hand, dealer_hand, player_chips)
@@ -64,7 +85,7 @@ def start_game():
 
     # Inform Player of their chips total
     print(f"\nPlayer: {player_hand.name}'s winnings stand at {player_chips.total}")
-    
+
     # Ask to play again
     new_game = input("\nWould you like to play another hand? Enter 'y' or 'n' ")
 
