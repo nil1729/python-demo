@@ -1,0 +1,8 @@
+INFO:root:Will run with args: ('Nilanjan', 21), and kwargs: {}
+INFO:root:Will run with args: (), and kwargs: {'age': 21, 'name': 'John'}
+INFO:root:Will run with args: (), and kwargs: {}
+ERROR:root:display_info() missing 2 required positional arguments: 'name' and 'age'
+INFO:root:Will run with args: ('Nilanjan', 21), and kwargs: {}
+INFO:root:Will run with args: (), and kwargs: {'age': 21, 'name': 'John'}
+INFO:root:Will run with args: (), and kwargs: {}
+ERROR:root:display_info() missing 2 required positional arguments: 'name' and 'age'
